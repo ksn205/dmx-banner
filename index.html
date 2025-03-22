@@ -183,12 +183,17 @@ html {
 </head>
 <body> 
     <script>
-        function changeFontSize() {
-            // Get user input for font size
+        function applyStyles() {
+            // Get user inputs
             let newSize = document.getElementById("fontSizeInput").value;
+            let newPadding = document.getElementById("paddingLeftInput").value;
             
-            // Apply the new font size to the input field
-            document.querySelector(".txt_100.gn.title-banner").style.fontSize = newSize + "px";
+            // Select the input field
+            let inputField = document.querySelector(".txt_100.gn.title-banner");
+            
+            // Apply the styles
+            inputField.style.fontSize = newSize + "px";
+            inputField.style.paddingLeft = newPadding + "px";
         }
     </script>
 <div class="container-left">
@@ -225,11 +230,15 @@ html {
         </button>
 	</p>   
         <h3 class="right-title">ĐỔI TIÊU ĐỀ</h3>
-	<!-- Font Size Selection -->
     <!-- Input for font size -->
-    <label for="fontSizeInput">Enter Font Size (px):</label>
+    <label for="fontSizeInput">Font Size (px):</label>
     <input type="number" id="fontSizeInput" value="20" min="10" max="100">
-    <button onclick="changeFontSize()">Apply</button>
+
+    <!-- Input for padding-left -->
+    <label for="paddingLeftInput">Padding-Left (px):</label>
+    <input type="number" id="paddingLeftInput" value="0" min="0" max="100">
+
+    <button onclick="applyStyles()">Apply</button>
 <!--     <select class="select_title" id="changetitle" role="set" mtaction="setChange" rule="1" style="padding:5px;border-radius:5px">
         <option value="gtq">GIÁ RẺ QUÁ</option>
         <option value="mha">MÁY HÚT ẨM</option>
