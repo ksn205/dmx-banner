@@ -182,19 +182,15 @@ html {
 </style>
 </head>
 <body> 
-	<script>
-    // Get input field and slider
-    const inputField = document.querySelector(".title-banner");
-    const fontSizeSlider = document.getElementById("fontSizeSlider");
-    const fontSizeValue = document.getElementById("fontSizeValue");
-
-    // Change font size when slider moves
-    fontSizeSlider.addEventListener("input", function() {
-        let fontSize = fontSizeSlider.value + "px";
-        inputField.style.fontSize = fontSize;
-        fontSizeValue.textContent = fontSize; // Update displayed font size
-    });
-</script>
+    <script>
+        function changeFontSize() {
+            // Get user input for font size
+            let newSize = document.getElementById("fontSizeInput").value;
+            
+            // Apply the new font size to the input field
+            document.querySelector(".txt_100.gn.title-banner").style.fontSize = newSize + "px";
+        }
+    </script>
 <div class="container-left">
     <div class="paper">
         <div class="paper_content">	
@@ -230,13 +226,10 @@ html {
 	</p>   
         <h3 class="right-title">ĐỔI TIÊU ĐỀ</h3>
 	<!-- Font Size Selection -->
-<div class="font-size-selector">
-    <label>
-        CHọn kích thước chữ:
-        <input type="range" id="fontSizeSlider" min="10" max="60" value="20">
-        <span id="fontSizeValue">20px</span>
-    </label>
-</div>
+    <!-- Input for font size -->
+    <label for="fontSizeInput">Enter Font Size (px):</label>
+    <input type="number" id="fontSizeInput" value="20" min="10" max="100">
+    <button onclick="changeFontSize()">Apply</button>
 <!--     <select class="select_title" id="changetitle" role="set" mtaction="setChange" rule="1" style="padding:5px;border-radius:5px">
         <option value="gtq">GIÁ RẺ QUÁ</option>
         <option value="mha">MÁY HÚT ẨM</option>
