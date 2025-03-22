@@ -187,13 +187,21 @@ html {
             // Get user inputs
             let newSize = document.getElementById("fontSizeInput").value;
             let newPadding = document.getElementById("paddingLeftInput").value;
+            let newText = document.getElementById("titleTextInput").value;
             
-            // Select the input field
-            let inputField = document.querySelector(".txt_100.gn.title-banner");
+            // Select all input fields with the class
+            let inputFields = document.querySelectorAll(".txt_100.gn.title-banner");
             
-            // Apply the styles
-            inputField.style.fontSize = newSize + "px";
-            inputField.style.paddingLeft = newPadding + "px";
+            // Loop through each element and apply styles
+            inputFields.forEach(input => {
+                input.style.fontSize = newSize + "px";
+                input.style.paddingLeft = newPadding + "px";
+                
+                // Only change the text if the user provided a new title
+                if (newText.trim() !== "") {
+                    input.value = newText;
+                }
+            });
         }
     </script>
 <div class="container-left">
